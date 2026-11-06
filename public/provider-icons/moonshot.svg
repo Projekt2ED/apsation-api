@@ -1,0 +1,5 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="Moonshot">
+  <rect width="64" height="64" rx="14" fill="#6D28D9"/>
+  <path d="M39.5 14.5c-8.6 2.2-15 10-15 19.3 0 7.4 4 13.8 10 17.2-1.5.3-3 .5-4.6.5-11 0-20-9-20-20s9-20 20-20c3.5 0 6.8.9 9.6 2.5Z" fill="#FFFFFF"/>
+  <text x="39" y="42" text-anchor="middle" font-family="Arial, Helvetica, sans-serif" font-size="15" font-weight="700" fill="#FFFFFF">K</text>
+</svg>

@@ -1,26 +1,147 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #f4efe7;
+  --foreground: #11110f;
+  --paper: #f4efe7;
+  --panel: rgba(255, 255, 255, 0.74);
+  --panel-strong: #fffdfa;
+  --ink: #11110f;
+  --muted: #68645d;
+  --line: rgba(17, 17, 15, 0.08);
+  --line-strong: rgba(17, 17, 15, 0.16);
+  --accent: #1352ef;
+  --accent-soft: rgba(19, 82, 239, 0.12);
+  --success: #0d6d4c;
+  --danger: #b24425;
+  --font-sans: "Aptos", "HarmonyOS Sans SC", "Microsoft YaHei UI", "PingFang SC",
+    "Hiragino Sans GB", sans-serif;
+  --font-display: "Aptos Display", "Trebuchet MS", "Microsoft YaHei UI",
+    "PingFang SC", sans-serif;
+  --font-mono: "Cascadia Mono", "JetBrains Mono", "SFMono-Regular", Consolas,
+    monospace;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-sans);
+  --font-display: var(--font-display);
+  --font-mono: var(--font-mono);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background:
+    radial-gradient(circle at 0% 0%, rgba(19, 82, 239, 0.1), transparent 24%),
+    radial-gradient(circle at 92% 8%, rgba(198, 160, 90, 0.16), transparent 18%),
+    radial-gradient(circle at 52% 100%, rgba(17, 17, 15, 0.04), transparent 28%),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.28), transparent 32%),
+    var(--paper);
+  color: var(--ink);
+  font-family: var(--font-sans);
+}
+
+::selection {
+  background: rgba(19, 82, 239, 0.16);
+  color: var(--ink);
+}
+
+a,
+button {
+  transition:
+    color 180ms ease,
+    background-color 180ms ease,
+    border-color 180ms ease,
+    box-shadow 180ms ease,
+    transform 180ms ease;
+}
+
+.site-shell {
+  width: min(1920px, calc(100vw - clamp(1rem, 2.2vw, 2.5rem)));
+  margin-inline: auto;
+}
+
+.section-space {
+  padding-top: clamp(2rem, 4vw, 4rem);
+  padding-bottom: clamp(2rem, 4vw, 4rem);
+}
+
+.panel {
+  border: 1px solid var(--line);
+  border-radius: 1.15rem;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.38), rgba(255, 255, 255, 0.18)),
+    var(--panel);
+  box-shadow: 0 18px 52px rgba(17, 17, 15, 0.055);
+  backdrop-filter: blur(18px);
+}
+
+.eyebrow {
+  font-size: 0.72rem;
+  line-height: 1;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.primary-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid transparent;
+  background: var(--ink);
+  color: white;
+  padding: 0.85rem 1.25rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.primary-button:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 18px 35px rgba(17, 17, 15, 0.14);
+}
+
+.subtle-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  border: 1px solid var(--line-strong);
+  background: rgba(255, 255, 255, 0.52);
+  color: var(--ink);
+  padding: 0.85rem 1.2rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+}
+
+.subtle-button:hover {
+  background: rgba(255, 255, 255, 0.88);
+}
+
+.font-display {
+  font-family: var(--font-display), var(--font-sans), sans-serif;
+}
+
+@media (max-width: 640px) {
+  .site-shell {
+    width: calc(100vw - 1rem);
+  }
+
+  .section-space {
+    padding-top: 1.5rem;
+    padding-bottom: 1.5rem;
+  }
+
+  .panel {
+    border-radius: 1rem;
+  }
 }
